@@ -75,10 +75,12 @@
       var messageContainer = document.getElementById("messageContainer");
       video.style.display = "none";
       messageContainer.style.display = "block";
-      var videoButton=docuent.getElementById('renderVideoButton');
+      var videoButton=document.getElementById('renderVideoButton');
       videoButton.style.display="none";
 
-      setTimeout(function(){ video.style.display = "block";
+      setTimeout(function(){ 
+        alert("hi");
+        video.style.display = "block";
       messageContainer.style.display = "none";
       videoButton.style.display="block";
       video.play();
