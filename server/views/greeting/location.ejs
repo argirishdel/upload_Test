@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Select Location</title>
+</head>
+<body>
+  <div class="container">
+      <form action="/web/greet" method="post">
+      <select name="location" id="loc">
+        <% locations.forEach(function (loc) { %>
+          <option value="<%= loc.entrance_name %>"> <%= loc.entrance_name %></option>
+        <% }) %>
+      </select>
+      <button type="submit">Go</button>
+    </form> 
+  </div>
+</body>
+</html>

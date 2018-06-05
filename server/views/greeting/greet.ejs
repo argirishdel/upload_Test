@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Greet</title>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style>
+  #promoVid{
+    
+   min-width: 100%;
+   min-height: 100%;
+  }
+</style>
+</head>
+<body>
+    <video id="promoVid" controls >
+        <source src="/photo-storage/pic-bmw.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video>
+  
+<main>
+<div class="container">
+    <h2>Welcome <%= location %> </h2>
+    <div class="container">
+        <div class="page-header">
+          <h2>Hello User - Your BMW S5 is ready for a spin.</h2>       
+        </div>
+</div>
+ <button onclick="renderVideo()" id="renderVideoButton"> Time to play the message </button>
+</div>
+</main>
+
+  <script>
+    window.onload = function(){
+      alert('hi');
+      
+      var video=document.getElementById('promoVid');
+      video.play();
+      video.setAttribute("loop", "");
+    }
+    
+    var rand = Math.floor(Math.random()*90000) + 10000;
+    localStorage.setItem('conName',rand);
+    //var url = window.location.href;
+    var url = "https://bmw-greet.herokuapp.com/";
+    
+    var loc = <%-JSON.stringify(location) %>;
+    
+    //var socket = io.connect("https://bmw-greet.herokuapp.com?location="+loc);
+    var socket = io.connect(url,{
+                                  query: {
+                                    location: loc,
+                                    device:"TV"
+                                  }
+                                });
+    
+      socket.on('display-scanned',function(data){
+        console.log("GOt DATA");
+        alert(data.firstname);
+      }); 
+    
+      socket.on('message', function (data) {
+        console.log(data);
+      })     
+      
+      function renderVideo(){ 
+      var video = document.getElementById('promoVid');
+      video.pause();
+      var pauseTime = video.currentTime;
+      localStorage.setItem('pausetime', pauseTime);
+     } 
+     
+   
+  </script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>

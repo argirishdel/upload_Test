@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<head>
+    <title> Upload Video</title>
+    <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<style type="text/css">
+    #InputContainer{
+        display:flex;
+    }
+   </style>
+</head> 
+<body> 
+    <header>
+         <div class="container">
+                    <div class="page-header">
+                      <h2>Hello Admin - This interface will allow you to upload videos</h2>       
+                    </div>
+         </div>
+    </header>]
+    <main>
+        <div class="container">
+          <form action="/upload" enctype="multipart/form-data" method="POST" >
+            <label> Upload Your video</label>
+            <div id="InputContainer">
+            <input id="InputVideo" type="file" name="pic" accept="video/*">
+            <input id="Submit" type="submit" value="Upload photo">
+            </div>
+          </form>
+              </div>
+    </main>
+    <div class="container">
+        <h3> The Video you have uploaded is given below. </h3>
+    </div>
+
+
+<!-- jQuery library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!-- Latest compiled JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
