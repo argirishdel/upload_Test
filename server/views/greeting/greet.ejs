@@ -37,10 +37,12 @@
 </main>
 
   <script>
-    window.onload = function(){
-      var video=document.getElementById('promoVid');
+
+    $(document).ready(function() { var video=document.getElementById('promoVid');
       video.play();
-      video.setAttribute("loop", "");
+      video.setAttribute("loop", ""); });
+    document.onload = function(){
+      
     }
     
     var rand = Math.floor(Math.random()*90000) + 10000;
